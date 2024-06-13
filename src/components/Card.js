@@ -13,7 +13,7 @@ export default function Card() {
             <p className="card-text">Some quick example text </p>
             <div className="container w-100">
               <select className="m-2 h-100 bg-success rounded">
-                {Array.from(Array(6), (e, i) => {
+                {Array.from(Array(5), (e, i) => {
                   return (
                     <option key={i + 1} value={i + 1}>
                       {i + 1}
