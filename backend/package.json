@@ -7,5 +7,10 @@
   },
   "author": "Krishna",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "express": "^4.19.2",
+    "mongoose": "^6.10.0",
+    "nodemon": "^3.1.4"
+  }
 }
