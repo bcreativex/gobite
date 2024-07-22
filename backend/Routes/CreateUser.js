@@ -57,7 +57,7 @@ router.post(
           .json({ errors: "Try Logging with correct credentials" });
       }
 
-      if (req.body.password !== userData.password) {
+      if (!req.body.password === userData.password) {
         return res
           .status(400)
           .json({ errors: "Try Logging with correct credentials" });
