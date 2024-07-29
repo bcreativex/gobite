@@ -23,7 +23,10 @@ switch(action.type) {
                 return arr
             })   
             return arr 
-
+        
+        case "DROP":
+            let empArray = []
+             return empArray
         default:
             console.log("Error in Reducer");
 }   
