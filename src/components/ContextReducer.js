@@ -29,7 +29,7 @@ switch(action.type) {
              return empArray
         default:
             console.log("Error in Reducer");
-}   
+    }   
 
 }
 
