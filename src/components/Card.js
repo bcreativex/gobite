@@ -46,7 +46,7 @@ const priceRef = useRef();
           <div className="card-body">
             <h5 className="card-title">{props.foodItem.name}</h5>
             <div className="container w-100">
-              <select className="m-2 h-100 bg-info rounded" onChange={(e) => setQty (e.target.value)}>
+              <select className="m-2 h-100 bg-secondary rounded text-light" onChange={(e) => setQty (e.target.value)}>
                 {Array.from(Array(5), (e, i) => {
                   return (
                     <option key={i + 1} value={i + 1}>
@@ -56,7 +56,7 @@ const priceRef = useRef();
                 })}
               </select>
 
-              <select className="m-2 h-100 bg-info rounded" ref={priceRef} onChange={(e) => setSize (e.target.value)} >
+              <select className="m-2 h-100 bg-secondary rounded text-light" ref={priceRef} onChange={(e) => setSize (e.target.value)} >
                {priceOptions.map((data)=>{
                 return <option key= {data} value={data}>{data}</option>
                })}
