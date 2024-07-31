@@ -16,7 +16,7 @@ export default function Navbar() {
 
   return (
     <div>
-     <nav className="navbar navbar-expand-lg navbar-dark bg-success">
+     <nav className="navbar navbar-expand-lg navbar-dark bg-info">
         <div className="container-fluid">
           <Link className="navbar-brand fs-1 fst-italic" to="/">GoBite</Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,14 +37,14 @@ export default function Navbar() {
             {(!localStorage.getItem("authToken"))? 
       
                  <div className='d-flex'>
-                <Link className="btn bg-white text-success mx-1" to="/login">Login</Link>
+                <Link className="btn bg-white text-info mx-1" to="/login">Login</Link>
              
-                <Link className="btn bg-white text-success mx-1" to="/createuser"> Signup</Link>
+                <Link className="btn bg-white text-info mx-1" to="/createuser"> Signup</Link>
               
              </div>
               :
               <div>
-              <div className='btn bg-white text-success mx-2' onClick={()=> {setCartView(true)}}>
+              <div className='btn bg-white text-info mx-2' onClick={()=> {setCartView(true)}}>
               MyCart {" "}
               <Badge pill bg="danger" > {data.length} </Badge>
               </div>
