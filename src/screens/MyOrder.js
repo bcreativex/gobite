@@ -5,8 +5,8 @@ export default function MyOrder() {
     const [orderData,setOrderData] = useState("");
     const fetchMyOrder = async ()=> {
         console.log(localStorage.getItem('userEmail'))
-        await fetch ("http://localhost:5000/api/myOrderData",{
-            method: 'POST',
+        await fetch ("http://localhost:5000/api/myorderData",{
+            method: "POST",
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -21,9 +21,9 @@ export default function MyOrder() {
 
     useEffect(()=>{
         fetchMyOrder()
-    },[])
+    }, [])
   return (
-    <>
+    <div>
     <div>
       <Navbar/>
     </div>
@@ -47,7 +47,7 @@ export default function MyOrder() {
 
                                                         <div className='col-12 col-md-6 col-lg-3' >
                                                             <div className="card mt-3" style={{ width: "16rem", maxHeight: "360px" }}>
-                                                                <img src={arrayData.img} className="card-img-top" alt="..." style={{ height: "120px", objectFit: "fill" }} />
+                                                                {/* <img src={arrayData.img} className="card-img-top" alt="..." style={{ height: "120px", objectFit: "fill" }} /> */}
                                                                 <div className="card-body">
                                                                     <h5 className="card-title">{arrayData.name}</h5>
                                                                     <div className='container w-100 p-0' style={{ height: "38px" }}>
@@ -77,9 +77,10 @@ export default function MyOrder() {
                     }) : <div>You haven't placed a order yet</div>}
                 </div>
     </div>
-     <div>
-     <Footer/>
+
+   <div>
+    <Footer/>
    </div>
-   </>
+   </div>
   )
 }
