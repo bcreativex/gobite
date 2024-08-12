@@ -1,6 +1,8 @@
 import React from 'react'
 import { useCart, useDispatchCart } from '../components/ContextReducer'
+import {loadStripe} from '@stripe/stripe-js';
 import trash from "../trash.svg"
+import { useStripe } from '@stripe/react-stripe-js';
 export default function Cart() {
 
   let data = useCart();
@@ -31,7 +33,36 @@ export default function Cart() {
     if (response.status===200) {
         dispatch({type:"DROP"})
     }
+
   }
+
+  // const makePayment = async ()=> {
+  //   const stripe = await loadStripe("pk_test_51PmJHa049GpZfud4DVh2m5qUB2JcFmhPO24rD657ORP1FjLwMmyg6mCFW8ItJf6hDwcJ1MVwJ3XeUH1ZxGEwG1uo00Gd5stdvy");
+  //   const body = {
+  //     products: data
+  //   }
+
+  //   const headers = {
+  //      "Content-Type": "application/json"
+  //   }
+
+  //   const response = await fetch (`${apiURL}/create-checkout-session`, {
+  //     method:"POST",
+  //     headers:headers,
+  //     body:JSON.stringify(body)
+  //   })
+
+  //   const session  = await response.json();
+
+  //   const result = stripe.redirectToCheckout({
+  //     sessionId:session.id
+  //   });
+
+  //   if(result.error){
+  //     console.log(result.error);
+  //   }
+  // }
+
   let totalPrice = data.reduce((total,food) => total + food.price, 0)
   return (
     <div>
