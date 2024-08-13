@@ -11,7 +11,6 @@ export default function () {
           </Link>
           <span className="text-muted">© 2024 Quickbite, Inc</span>
         </div>
-       
       </footer>
     </div>
   )
