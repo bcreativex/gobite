@@ -5,8 +5,8 @@ import trash from "../trash.svg"
 import { useStripe } from '@stripe/react-stripe-js';
 export default function Cart() {
 
-  let data = useCart();
-  let dispatch = useDispatchCart();
+  const data = useCart();
+    let dispatch = useDispatchCart();
   if (data.length === 0) {
      return (
         <div>
@@ -37,13 +37,14 @@ export default function Cart() {
     }
 
   }
-
+  // stripe payment
   const makePayment = async()=> {
     const stripe = await loadStripe("pk_test_51PmJHa049GpZfud4DVh2m5qUB2JcFmhPO24rD657ORP1FjLwMmyg6mCFW8ItJf6hDwcJ1MVwJ3XeUH1ZxGEwG1uo00Gd5stdvy");
 
     const body = {
-      products:data
+        products:data
     }
+
 
     const headers = {
       "Content-Type": "application/json"
@@ -71,7 +72,7 @@ export default function Cart() {
   return (
     <div>
 
-    {console.log(data)}
+    {/* {console.log(data)} */}
     <div className='container m-auto mt-5 table-responsive  table-responsive-sm table-responsive-md bg-white'>
       <table className='table table-hover '>
         <thead className=' text-info fs-4'>
@@ -87,8 +88,9 @@ export default function Cart() {
         <tbody>
           {data.map((food, index) => (
             <tr>
-              <th scope='row' >{index + 1}</th>
-              <td >{food.name}</td>
+              <th scope='row' >{index + 1}</th> 
+              {/* {console.log(food)} */}
+              <td >{food.name}</td> 
               <td>{food.qty}</td>
               <td>{food.size}</td>
               <td>{food.price}</td>
@@ -104,3 +106,4 @@ export default function Cart() {
   </div>
   )
 }
+

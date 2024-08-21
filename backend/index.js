@@ -2,6 +2,8 @@ const express = require('express')
 const app = express()
 const port = 5000
 const mongoDB = require("./database")
+const cors = require ("cors");
+const stripe = require("stripe")("sk_test_51PmJHa049GpZfud4xSCIX4u1A7RiVqTzJxkUnEYQiH70zRllQ8V6QWSMFuGEAKPx0JG8s6HdxuVKQqpy6fNOehsq00oXtiult5")
 
 app.use((req,res,next)=>{
   res.setHeader("Access-Control-Allow-Origin","http://localhost:3000");
@@ -12,7 +14,32 @@ app.use((req,res,next)=>{
   next();
 })
 
+// checkout
+app.post("/api/checkout", async(req,res)=> {
+  const data = req.body;
+  console.log("index wali file")
+  console.log(data)
+  // const lineItems = products.map((product)=>({
+  //   price_data:{
+  //     currency:"inr",
+  //     product_data:{
+  //       name:product.name
+  //     },
+  //     unit_amount:product.price * 100,
+  //   },
+  //   quantity:product.qty
+  // }));
 
+  // const session = await stripe.checkout.sessions.create({
+  //   Payment_method_types:["card"],
+  //   line_items:lineItems,
+  //   mode:"payment",
+  //   success_url:"http://localhost:3000/success",
+  //   cancel_url:"http://localhost:3000/cancel",
+  // });
+  
+  // res.json({id:session.id})
+})
 
 mongoDB();
 app.get('/', (req, res) => {
@@ -20,6 +47,7 @@ app.get('/', (req, res) => {
 })
 
 app.use(express.json())
+app.use(cors())
 app.use('/api',require("./Routes/CreateUser"));
 app.use('/api',require("./Routes/DisplayData"));
 app.use('/api',require("./Routes/OrderData"));

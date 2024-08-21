@@ -8,6 +8,7 @@ const priceRef = useRef();
   let priceOptions = Object.keys(options);
   const [qty, setQty] = useState(1)
   const [size, setSize] = useState("")
+  
   const handleAddToCart = async ()=> {
 
   let food =[]
