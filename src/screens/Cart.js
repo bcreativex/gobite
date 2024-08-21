@@ -44,7 +44,8 @@ export default function Cart() {
     const body = {
         products:data
     }
-
+    
+  console.log(body)
 
     const headers = {
       "Content-Type": "application/json"

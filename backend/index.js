@@ -16,9 +16,9 @@ app.use((req,res,next)=>{
 
 // checkout
 app.post("/api/checkout", async(req,res)=> {
-  const data = req.body;
+  const products = req.body;
   console.log("index wali file")
-  console.log(data)
+  console.log(products)
   // const lineItems = products.map((product)=>({
   //   price_data:{
   //     currency:"inr",
