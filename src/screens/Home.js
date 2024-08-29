@@ -50,7 +50,7 @@ export default function Home() {
           </div>
           </div>
           <div className="carousel-item active">
-            <img src="https://picsum.photos/id/17/900/700" className="d-block w-100" style={{filter: "brightness(30%)"}} alt="..." />
+            <img src="/img/1.jpg" className="d-block w-100" style={{filter: "brightness(30%)"}} alt="..." />
           </div>
           <div className="carousel-item">
             <img src="https://picsum.photos/id/18/900/700" className="d-block w-100" style={{filter: "brightness(30%)"}} alt="..." />
