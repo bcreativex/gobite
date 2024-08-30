@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
-const port = 5000
+require('dotenv').config()
+const port = process.env.PORT;
 const mongoDB = require("./database")
 const cors = require ("cors");
 const stripe = require("stripe")("sk_test_51PmJHa049GpZfud4xSCIX4u1A7RiVqTzJxkUnEYQiH70zRllQ8V6QWSMFuGEAKPx0JG8s6HdxuVKQqpy6fNOehsq00oXtiult5")
