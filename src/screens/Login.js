@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link,useNavigate } from "react-router-dom";
+import { baseUrl } from "../Urls";
 
 export default function Login() {
   const [credentials, setcredentials] = useState({ email: "", password: "" });
@@ -13,7 +14,7 @@ export default function Login() {
       })
     );
 
-    const response = await fetch("http://localhost:5000/api/loginuser", {
+    const response = await fetch(`${baseUrl}/api/loginuser`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

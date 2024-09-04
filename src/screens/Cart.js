@@ -2,6 +2,7 @@ import React from 'react'
 import { useCart, useDispatchCart } from '../components/ContextReducer'
 import {loadStripe} from '@stripe/stripe-js';
 import trash from "../trash.svg"
+import { baseUrl } from "../Urls";
 import { useStripe } from '@stripe/react-stripe-js';
 export default function Cart() {
 
@@ -19,7 +20,7 @@ export default function Cart() {
 
   const handleCheckOut  = async ()=> {
     let userEmail = localStorage.getItem("userEmail");
-    let response = await fetch("http://localhost:5000/api/orderData" , {
+    let response = await fetch(`${baseUrl}/api/orderData` , {
         method: "POST",
         headers: {
         "Content-Type": "application/json"
@@ -51,7 +52,7 @@ export default function Cart() {
       "Content-Type": "application/json"
     }
 
-    const response = await fetch ("http://localhost:5000/api/checkout",{
+    const response = await fetch (`${baseUrl}/api/checkout`,{
       method:"POST",
       headers:headers,
       body:JSON.stringify(body)

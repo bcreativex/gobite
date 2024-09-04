@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import Card from "../components/Card";
 import Carousel from "../components/Carousel";
 import {useEffect, useState } from "react";
+import { baseUrl } from "../Urls";
 
 export default function Home() {
   const [search,setSearch] = useState(''); 
@@ -11,7 +12,7 @@ export default function Home() {
   const [foodItem,setFoodItem] = useState([]);
 
   const loadData = async ()=> {
-    let response = await fetch("http://localhost:5000/api/foodData",{
+    let response = await fetch(`${baseUrl}/api/foodData`,{
       method:"POST",
       headers: {
         'Content-Type': 'application/json'
@@ -21,7 +22,7 @@ export default function Home() {
     response = await response.json();
     setFoodItem(response[0]);
     setFoodCat(response[1]);
-    // console.log(response[0],response[1]);
+    console.log(response[0],response[1]);
   }
   
   useEffect(()=>{
@@ -84,6 +85,7 @@ export default function Home() {
              .map (filterItems=>{
               return(
                 <div key={filterItems._id} className="col-12 col-md-6 col-lg-3">
+                  {console.log(foodItem)}
                   <Card foodItem = {filterItems}
                     options= {filterItems.options[0]}
                     imgSrc = {filterItems.img}

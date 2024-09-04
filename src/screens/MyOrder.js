@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
+import { baseUrl } from '../Urls';
 export default function MyOrder() {
+    
     const [orderData,setOrderData] = useState("");
     const fetchMyOrder = async ()=> {
         console.log(localStorage.getItem('userEmail'))
-        await fetch ("http://localhost:5000/api/myorderData",{
+        await fetch (`${baseUrl}/api/myorderData`,{
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -15,6 +17,7 @@ export default function MyOrder() {
             })
         }).then(async (res)=> {
             let response = await res.json()
+            console.log(response)
             await setOrderData(response)
         })
     }
@@ -30,15 +33,17 @@ export default function MyOrder() {
 
     <div className='container'>
                 <div className='row'>
-
                     {orderData !== {} ? Array(orderData).map(data => {
                         return (
+                            
                             data.orderData ?
                                 data.orderData.order_data.slice(0).reverse().map((item) => {
                                     return (
+                                        
                                         item.map((arrayData) => {
                                             return (
                                                 <div  >
+                                                
                                                     {arrayData.Order_date ? <div className='m-auto mt-5'>
 
                                                         {data = arrayData.Order_date}
@@ -47,7 +52,7 @@ export default function MyOrder() {
 
                                                         <div className='col-12 col-md-6 col-lg-3' >
                                                             <div className="card mt-3 bg-dark" style={{ width: "16rem", maxHeight: "360px" }}>
-                                                                <img src={arrayData.img} className="card-img-top" alt="..." style={{ height: "120px", objectFit: "fill" }} />
+                                                                <img src={console.log(arrayData)} className="card-img-top" alt="..." style={{ height: "120px", objectFit: "fill" }} />
                                                                 <div className="card-body text-light">
                                                                     <h5 className="card-title">{arrayData.name}</h5>
                                                                     <div className='container w-100 p-0' style={{ height: "38px" }}>
