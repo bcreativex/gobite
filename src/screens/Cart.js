@@ -1,9 +1,7 @@
 import React from 'react'
 import { useCart, useDispatchCart } from '../components/ContextReducer'
-import {loadStripe} from '@stripe/stripe-js';
 import trash from "../trash.svg"
 import { baseUrl } from "../Urls";
-import { useStripe } from '@stripe/react-stripe-js';
 export default function Cart() {
 
   const data = useCart();
@@ -38,37 +36,7 @@ export default function Cart() {
     }
 
   }
-  // stripe payment
-  const makePayment = async()=> {
-    const stripe = await loadStripe("pk_test_51PmJHa049GpZfud4DVh2m5qUB2JcFmhPO24rD657ORP1FjLwMmyg6mCFW8ItJf6hDwcJ1MVwJ3XeUH1ZxGEwG1uo00Gd5stdvy");
-
-    const body = {
-        products:data
-    }
-    
-  console.log(body)
-
-    const headers = {
-      "Content-Type": "application/json"
-    }
-
-    const response = await fetch (`${baseUrl}/api/checkout`,{
-      method:"POST",
-      headers:headers,
-      body:JSON.stringify(body)
-    });
-
-    const session = await response.json();
-
-    const result = stripe.redirectToCheckout({
-      sessionId:session.id
-    });
-
-    if (result.error){
-      console.log(result.error);
-    }
-
-  }
+ 
 
   let totalPrice = data.reduce((total,food) => total + food.price, 0)
   return (
@@ -102,7 +70,7 @@ export default function Cart() {
       </table>
       <div><h1 className='fs-2'>Total Price: {totalPrice}/-</h1></div>
       <div>
-        <button className='btn bg-info mt-5 ' onClick={()=>{handleCheckOut(); makePayment();}} > Check Out </button>
+        <button className='btn bg-info mt-5 ' onClick={()=>{handleCheckOut()}} > Check Out </button>
       </div>
     </div>
   </div>
