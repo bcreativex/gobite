@@ -6,6 +6,7 @@ import Carousel from "../components/Carousel";
 import {useEffect, useState } from "react";
 import { baseUrl } from "../Urls";
 
+
 export default function Home() {
   const [search,setSearch] = useState(''); 
   const [foodCat,setFoodCat] = useState([]);
@@ -51,13 +52,13 @@ export default function Home() {
           </div>
           </div>
           <div className="carousel-item active">
-            <img src="https://picsum.photos/id/17/900/700" className="d-block w-100" style={{filter: "brightness(30%)"}} alt="..." />
+            <img src="foo.jpg" className="d-block w-100" style={{filter: "brightness(30%)"}} alt="..." />
           </div>
           <div className="carousel-item">
-            <img src="https://picsum.photos/id/18/900/700" className="d-block w-100" style={{filter: "brightness(30%)"}} alt="..." />
+            <img src="foody.jpg" className="d-block w-100" style={{filter: "brightness(30%)"}} alt="..." />
           </div>
           <div className="carousel-item">
-            <img src="https://picsum.photos/id/19/900/700" className="d-block w-100" style={{filter: "brightness(30%)"}} alt="..." />
+            <img src="foodyy.jpg" className="d-block w-100" style={{filter: "brightness(30%)"}} alt="..." />
           </div>
         </div>
         <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">

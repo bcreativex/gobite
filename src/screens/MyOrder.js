@@ -4,9 +4,8 @@ import Navbar from '../components/Navbar'
 import { baseUrl } from '../Urls';
 export default function MyOrder() {
     
-    const [orderData,setOrderData] = useState("");
+    const [orderData,setOrderData] = useState([]);
     const fetchMyOrder = async ()=> {
-        console.log(localStorage.getItem('userEmail'))
         await fetch (`${baseUrl}/api/myorderData`,{
             method: "POST",
             headers: {
@@ -17,8 +16,7 @@ export default function MyOrder() {
             })
         }).then(async (res)=> {
             let response = await res.json()
-            console.log(response)
-            await setOrderData(response)
+            setOrderData(response)
         })
     }
 
@@ -52,7 +50,7 @@ export default function MyOrder() {
 
                                                         <div className='col-12 col-md-6 col-lg-3' >
                                                             <div className="card mt-3 bg-dark" style={{ width: "16rem", maxHeight: "360px" }}>
-                                                                <img src={console.log(arrayData)} className="card-img-top" alt="..." style={{ height: "120px", objectFit: "fill" }} />
+                                                                {/* <img src={arrayData.imgsrc} className="card-img-top" alt="..." style={{ height: "120px", objectFit: "fill" }} /> */}
                                                                 <div className="card-body text-light">
                                                                     <h5 className="card-title">{arrayData.name}</h5>
                                                                     <div className='container w-100 p-0' style={{ height: "38px" }}>

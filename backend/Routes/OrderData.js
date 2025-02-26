@@ -39,7 +39,7 @@ router.post('/orderData', async (req,res)=> {
 router.post('/myOrderData', async (req,res)=> {
  try{
   let eId = await Order.findOne({'email':req.body.email})
-  res.json({orderData:eId})
+  res.json({order_data:eId})
  } catch (error) {
   res.send("Server Error", error.message)
  }
